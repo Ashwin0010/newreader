@@ -11,17 +11,17 @@
   <mat-sidenav-container class="example-container">
   
     <mat-sidenav #sidenav class="example-sidenav">
-        qwefg
-      <!-- <mat-list class="list-nav">
-          <mat-list-item class="list-item" *ngFor="let source of mSources" (click)="searchArticles(source.id);sidenav.close();">
+      <mat-list class="list-nav">
+          <mat-list-item class="list-item" *ngFor="let source of newscategories">
   
-            <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ source.id +'.png)'}" class="example-header-image"></div>
+            <!-- <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ source.id +'.png)'}" class="example-header-image"></div> -->
   
-            <span class="source-name"> {{source.name}}</span>
+            <span [routerLink]="['', source]" class="source-name"> {{source}}</span>
   
           </mat-list-item>
-      </mat-list> -->
+      </mat-list>
     </mat-sidenav>
-    <app-news-list></app-news-list>
+    <router-outlet></router-outlet>
+    <!-- <app-news-list></app-news-list> -->
   </mat-sidenav-container>
   

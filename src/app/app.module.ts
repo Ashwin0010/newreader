@@ -13,10 +13,14 @@ import {MatCardModule} from '@angular/material/card';
 import { NewsListComponent } from './news/news-list/news-list.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import {MatListModule} from '@angular/material/list';
+import { LoaderComponent } from './shared/component/loader/loader.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
-    NewsListComponent
+    NewsListComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,9 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     MatIconModule,
     MatCardModule,
     MatPaginatorModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    MatListModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
