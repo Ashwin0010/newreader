@@ -18,6 +18,8 @@ import { LoaderComponent } from './shared/component/loader/loader.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatMenuModule} from '@angular/material/menu';
 import { NewsComponent } from './news/news-list/news/news.component';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { NewsComponent } from './news/news-list/news/news.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     MatSidenavModule,
@@ -40,7 +43,8 @@ import { NewsComponent } from './news/news-list/news/news.component';
     LazyLoadImageModule,
     MatListModule,
     MatProgressSpinnerModule,
-    MatMenuModule
+    MatMenuModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,10 +17,12 @@ export class NewsListComponent implements OnInit {
   newsList!: News[];
   paginationLength: number = 0;
   dataSource!: News[];
+  filteredNewsList!: News[];
   startIndex = 0;
   endIndex = 10;
   pageSize: number = 10;
   isShowLoader: boolean = false;
+  search: string = "";
 
   constructor(private newsService: NewsService, private route: ActivatedRoute, private router: Router) {
 
@@ -52,7 +54,7 @@ export class NewsListComponent implements OnInit {
   shareToTwitter(news: News) {
     let data = `${environment.url}/categories/${JSON.stringify(news)}`
 
-    const url = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href);
+    const url = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(data);
     window.open(url, '_blank');
   }
     
@@ -88,7 +90,22 @@ export class NewsListComponent implements OnInit {
     console.log(this.dataSource);
   }
 
-
+  searchArticles(event: any) {
+    console.log(event);
+    // this.filteredNewsList = this.newsList;
+    this.filteredNewsList = this.newsList.filter(data => {
+      // if(data.author.toLowerCase().startsWith(event.toLowerCase())) {
+      //   return data
+      // } else {
+      //   console.log("sdds")
+      //   return [];
+      // }
+      return data.author.toLowerCase().startsWith(event.toLowerCase())
+    });
+    console.log(this.filteredNewsList);
+    
+    this.dataSource = this.filteredNewsList.slice(this.startIndex, this.endIndex);
+  }
 }
 
 
