@@ -4,6 +4,7 @@
 const apiUrl = 'https://inshorts.deta.dev';
 export const environment = {
   production: false,
+  url: apiUrl,
   news: apiUrl + "/news"
 };
 

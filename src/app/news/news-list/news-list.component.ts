@@ -3,7 +3,8 @@ import { News, NewsList } from '../model/article';
 import { Observable, map } from 'rxjs';
 import { NewsService } from '../services/news.service';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-news-list',
@@ -21,7 +22,7 @@ export class NewsListComponent implements OnInit {
   pageSize: number = 10;
   isShowLoader: boolean = false;
 
-  constructor(private newsService: NewsService, private route: ActivatedRoute) {
+  constructor(private newsService: NewsService, private route: ActivatedRoute, private router: Router) {
 
 
   }
@@ -40,6 +41,25 @@ export class NewsListComponent implements OnInit {
     
 
 
+  }
+
+  shareToFacebook(news: News) {
+    let data = `${environment.url}/categories/${JSON.stringify(news)}`
+
+    const url = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(data);
+    window.open(url, '_blank');
+  }
+  shareToTwitter(news: News) {
+    let data = `${environment.url}/categories/${JSON.stringify(news)}`
+
+    const url = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href);
+    window.open(url, '_blank');
+  }
+    
+
+  getLink(news:News) {
+    // [routerLink]="['categories', news]"
+    this.router.navigate(['categories', JSON.stringify(news)])
   }
 
   getNews(categories: string) {

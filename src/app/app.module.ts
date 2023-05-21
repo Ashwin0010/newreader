@@ -16,11 +16,15 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 import {MatListModule} from '@angular/material/list';
 import { LoaderComponent } from './shared/component/loader/loader.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatMenuModule} from '@angular/material/menu';
+import { NewsComponent } from './news/news-list/news/news.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     NewsListComponent,
-    LoaderComponent
+    LoaderComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatPaginatorModule,
     LazyLoadImageModule,
     MatListModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

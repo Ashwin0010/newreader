@@ -12,4 +12,5 @@ export interface News {
     time: string;
     title: string;
     url: string;
+    id: string;
 }
